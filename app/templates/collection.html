@@ -1,13 +1,15 @@
 <section class="album-covers container clearfix">
-    <div class="collection-album-container column fourth">
-        <img src="/app/assets/images/album_covers/01.png">
+    <div class="collection-album-container column fourth" ng-repeat="album in collection.albums">
+        <!-- above, allows us to access the data from a single item in the collection (CollectionCtrl.js) -->
+        <img src="{{ album.albumArtUrl }}">
         <div class="collectio-album-info caption">
             <p>
-                <a class="album-name" ui-sref="album">The Colors</a>
+                <a class="album-name" ui-sref="album">{{ album.title }}</a>
                 <br/>
-                <a ui-sref="album">Pablo Picasso</a>
+                <a ui-sref="album">{{ album.artist }}</a>
                 <br/>
                 X songs
+                {{ ablum.songs.length }} songs
                 <br/>
             </p>
         </div>
