@@ -1,0 +1,18 @@
+<section class="album-covers container clearfix">
+    <div class="collection-album-container column fourth" ng-repeat="album in collection.albums">
+        <!-- above, allows us to access the data from a single item in the collection (CollectionCtrl.js) -->
+        <img src="{{ album.albumArtUrl }}">
+        <div class="collection-album-info caption">
+            <p>
+                <a class="album-name" ui-sref="album">{{ albums.title }}</a>
+                <br/>
+                <a ui-sref="album">{{ albums.artist }}</a>
+                <br/>
+                X songs
+                {{ albums.songs.length }} songs
+                <br/>
+            </p>
+        </div>
+    </div>
+</section>
+<ng-include src="'/app/templates/player_bar.html'"></ng-include>
