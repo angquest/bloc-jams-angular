@@ -1,15 +1,15 @@
 <section class="album-covers container clearfix">
-    <div class="collection-album-container column fourth" ng-repeat="album in collection.albums">
+    <div class="collection-album-container column fourth" ng-repeat="album in collection.albums track by $index">
         <!-- above, allows us to access the data from a single item in the collection (CollectionCtrl.js) -->
         <img src="{{ album.albumArtUrl }}">
         <div class="collection-album-info caption">
             <p>
-                <a class="album-name" ui-sref="album">{{ albums.title }}</a>
+                <a class="album-name" ui-sref="album">{{ album.title }}</a>
                 <br/>
-                <a ui-sref="album">{{ albums.artist }}</a>
+                <a ui-sref="album">{{ album.artist }}</a>
                 <br/>
                 X songs
-                {{ albums.songs.length }} songs
+                {{ album.songs.length }} songs
                 <br/>
             </p>
         </div>
