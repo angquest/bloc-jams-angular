@@ -34,14 +34,14 @@
                 currentBuzzObject.stop();
                 currentBuzzObject = null;
             }  
-            currentBuzzObject = new buzz.aound(song.audioUrl, {
+            currentBuzzObject = new buzz.sound(song.audioUrl, {
                 formats: ["mp3"],
                 preload: true
             });
             SongPlayer.currentSong = song;
         };
         
-        /**
+        /** PRIVATE FUNCTION
         * @function: playSong
         * @desc: Plays new audio file as currentBuzzObject
         * @param: {Object} song
@@ -49,6 +49,16 @@
         var playSong = function(song) {
             currentBuzzObject.play();
             song.playing = true;
+        };
+        
+        /** PRIVATE FUNCTION
+        * @function: stopSong
+        * @desc: Stops current new audio file as currentBuzzObject
+        * @param: {Object} song
+        */
+        var stopSong = function(song) {
+            currentBuzzObject.stop();
+            song.playing = null;
         };
         
         /**
@@ -97,11 +107,29 @@
                 playSong(song);
             }
         };
+        
+        /**
+        * @function: SongPlayer.next
+        * @desc: plays next song
+        * @param: {Object} song
+        */
+        SongPlayer.next = function() {
+            var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+            currentSongIndex++;
+            if(currentSongIndex >= 1) {
+                currentBuzzObject.stop();
+                SongPlayer.currentSong.playing = null;
+            } else {
+                var song = currentAlbum.songs[currentSongIndex];
+                setSong(song);
+                playSong(song);
+            }
+        };
     
         return SongPlayer;
     }
 
     angular
         .module("blocJams")
-        .factory("SongPlayer", SongPlayer);
+        .factory("SongPlayer", ["$rootScope", "Fixtures", SongPlayer]);
  })();
