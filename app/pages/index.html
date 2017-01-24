@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="blocJams">
+<html ng-app="blocJams"> <!-- ng-app: designates the root element of the application -->
 <head lang="en">
     <meta charset="UTF-8">
     <title>Bloc Jams Angular</title>
@@ -19,13 +19,13 @@
             <img src="/assets/images/bloc_jams_logo.png" alt="bloc jams logo" class="logo">
         </a>
         <div class="links-container">
-            <a href="collection.html" class="navbar-link">collection</a>
+            <a ui-sref="collection" class="navbar-link">collection</a> <!-- ui-sref: binds an <a> tag to a state -->
         </div>
     </nav>
     
     <ui-view></ui-view><!-- everything is going to be dynamically displayed here -->
                        <!-- ALSO, this directive (with the help of an external modeule known as UI-Router) tells Angular          where to place the templates when they're requested -->
-    
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.1.10/buzz.min.js"></script>
@@ -34,6 +34,7 @@
     <script src="/scripts/controllers/CollectionCtrl.js"></script>
     <script src="/scripts/controllers/AlbumCtrl.js"></script>
     <script src="/scripts/controllers/PlayerBarCtrl.js"></script>
+    <script src="/scripts/directives/seekBar.js"></script>
     <script src="/scripts/services/Fixtures.js"></script>
     <script src="/scripts/services/SongPlayer.js"></script>
 </body>

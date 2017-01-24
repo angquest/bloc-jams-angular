@@ -22,8 +22,7 @@
             <h2 class="song-name">{{ song name }}</h2>
             <div class="seek-control">
                 <div class="seek-bar">
-                    <div class="fill"></div> <!-- song's playback progress -->
-                    <div class="thumb"></div> <!-- a visual marker -->
+                    <seek-bar></seek-bar>
                 </div>
                 <div class="current-time">2:30</div> <!-- placeholder times -->
                 <div class="total-time">{{ total song time }}</div> <!-- placeholder times -->
@@ -34,8 +33,7 @@
         <div class="control-group volume">
             <span class="ion-volume-high icon"></span>
             <div class="seek-bar">
-                <div class="fill"></div>
-                <div class="thumb"></div>
+                <seek-bar></seek-bar>
             </div>
         </div>
     </div>

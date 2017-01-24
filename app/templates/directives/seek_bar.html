@@ -1,0 +1,4 @@
+<div class="seek-bar" ng-click="onClickSeekBar($event)">
+    <div class="fill" ng-style="fillStyle()"></div> <!-- song's playback progress; fillStyle can be called because it is on                                                        the directives "scope" object -->
+    <div class="thumb" ng-mousedown="trackThumb()"></div> <!-- a visual marker -->
+</div>
