@@ -15,15 +15,16 @@
 </head>
 <body>
     <nav class="navbar"> <!-- nav bar -->
-        <a ui-sref="index" class="logo">
-            <img src="/app/assets/images/bloc_jams_logo.png" alt="bloc jams logo" class="logo">
+        <a href="index.html" class="logo">
+            <img src="/assets/images/bloc_jams_logo.png" alt="bloc jams logo" class="logo">
         </a>
         <div class="links-container">
-            <a ui-sref="collection" class="navbar-link">collection</a>
+            <a href="collection.html" class="navbar-link">collection</a>
         </div>
     </nav>
     
     <ui-view></ui-view><!-- everything is going to be dynamically displayed here -->
+                       <!-- ALSO, this directive (with the help of an external modeule known as UI-Router) tells Angular          where to place the templates when they're requested -->
     
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
