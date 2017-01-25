@@ -19,7 +19,7 @@
                scope.value = 0; //Holds the value of the seek bar, such as the currently playing song time or the current                        volume. Default value is 0.
                scope.max = 100; //Holds the max value of the song and volume seek bars. Default value is 100.
                
-               var seekBar = $(element); //Holds the ellment that matches the directive (<seek-bar>) as a jQuery object so we                             can call jQuery methods on it.
+               var seekBar = $(element); //Holds the element that matches the directive (<seek-bar>) as a jQuery object so we                             can call jQuery methods on it.
                
                /**
                * @function: percentString
@@ -35,6 +35,10 @@
                
                scope.fillstyle = function() {
                    return {width: percentString()}; //Returns the width of the seek bar fill element based on the calculated                                    percent.
+               };
+               
+               scope.thumbStyle = function() {
+                   return {width: percentString()};  
                };
                
                scope.onClickSeekBar = function() { //Updated the seek bar value based on the seek bar's width and the                                               location of the user's click on the seek bar.
@@ -61,6 +65,6 @@
     
     angular
         .module("blocJams")
-        .directives("seekBar", ['$document', seekBar]); //$document must be injected as a dependency to us it above.
+        .directive("seekBar", ['$document', seekBar]); //$document must be injected as a dependency to use it above.
     
 })();
