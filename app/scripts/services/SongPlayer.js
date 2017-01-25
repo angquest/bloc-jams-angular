@@ -1,5 +1,5 @@
 (function(){
-    function SongPlayer(Fixtures) {
+    function SongPlayer($rootScope, Fixtures) { //$rootscope --> scopes a variable to all parts of an application.
         var SongPlayer = {};
         var currentAlbum = Fixtures.getAlbum();
         
@@ -17,6 +17,12 @@
         * @type: {Object}
         */
         SongPlayer.currentSong = null;
+        
+        /**
+        * @desc: Current playback time (in seconds) of curretly playing song
+        * @type: {Number}
+        */
+        SongPlayer.currentTime = null;
         
         /**
         * @desc: Buzz object audio file
@@ -38,6 +44,14 @@
                 formats: ["mp3"],
                 preload: true
             });
+            
+            currentBuzzObject.bind('timeupdate', function() { 
+                    //bind() --> adds am event listener to the Buzz sound object (timeupdate) event. When the song playback times ipdates, we execute a call back funcation. This function sets the value of (SongPlayer.currentTime) to the current playback time of the current Buzz object using another one of the Buzz library methods: (getTime()), which gets the current playback position in seconds. Using $apply, we apply the time update change to the $rootscope.
+                $rootScope.$apply(function() { //This will start applying the time update once we know which song to play.
+                    SongPlayer.currentTime = currentBuzzObject.getTime(); 
+                });
+            });
+            
             SongPlayer.currentSong = song;
         };
         
@@ -124,6 +138,17 @@
                 setSong(song);
                 playSong(song);
             }
+        };
+        
+        /**
+        * @function: setCurrentTime
+        * @desc: Set current time (in seconds) of currently playing song
+        * @param: {Number} time
+        */
+        SongPlayer.setCurrentTime = function(time) { //setCurrentTime method checks if there is a current Buzz object, and,                                                  if so, uses the Buzz's library's "setTime" method to set the playback                                                position in seconds.
+            if(currentBuzzObject) {
+                currentBuzzObject.setTime(time);
+            }  
         };
     
         return SongPlayer;
