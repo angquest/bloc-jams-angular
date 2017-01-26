@@ -15,7 +15,7 @@
            restrict: 'E', //Restricts the directive to a specific declaration style: element E, attribute A, class C, and                     Comment M. If omitted, the defaults (E and A) are used. Multiple restrictions are stringed                         together, for exp, AE or AEC.
            scope: { //Specifies that a new scope be created for the directive.
                onChange: '&' //Scoping this attribute allows for flexibility to specify how we want to handle the calue                       passed to the "on-change" attribute
-                             //'&' --> in the isolate scope object is a type of directive scope binding. It provides a way to execute an expression in the context of the parent scope.
+                             //'&' --> in the isolate scope object is a type of directive scope binding. It provides a way to    execute an expression in the context of the parent scope.
            }, 
            link: function(scope, element, attributes) { //Responsible for registering DOM listeners and updating the DOM.                                                    This is where we put most of the directive logic. The order of                                                    these parameters matters (scope, element, attributes).
                //directive logic to return
@@ -25,7 +25,7 @@
                var seekBar = $(element); //Holds the element that matches the directive (<seek-bar>) as a jQuery object so we                             can call jQuery methods on it.
                
                
-               //This code observes the calues of the attributes we declare in the HTML by specifying the attribute name in     the first arument. When the observed attibute is set ir changed, we execute a callback (the second argument)   that sets a new scope value (newValue) for the scope.value and scope.max attributes.
+               //This code observes the values of the attributes we declare in the HTML by specifying the attribute name in     the first arument. When the observed attibute is set ir changed, we execute a callback (the second argument)   that sets a new scope value (newValue) for the scope.value and scope.max attributes.
                attributes.$observe('value', function(newValue) { //$observe monitors the value changes of these "attributes"                                                     in a manner specific to this directive. 
                    scope.value = newValue; //Using the directive's scope determines the location of the seek bar thumb, and                             correspondingly, the playback position of the song.
                });
@@ -33,6 +33,9 @@
                attributes.$observe('max', function(newValue) {
                    scope.max = newValue; 
                });
+        
+        // added in ang-assign-cp10
+               attributes.
                
                /**
                * @function: percentString

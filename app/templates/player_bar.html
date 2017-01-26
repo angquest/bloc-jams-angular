@@ -27,7 +27,7 @@
                          max = the entire song duation -->
                     <!-- If the length of a song is the "max" value of the seek bar, then the current playback time of the        song is the "value" of the seekbar, which determines the position of the seek bar thumb -->
                 </div>
-                <div class="current-time">2:30</div> <!-- placeholder times -->
+                <div class="current-time">{{ songPlayer.currentTime }}</div> <!-- placeholder times -->
                 <div class="total-time">{{ total song time }}</div> <!-- placeholder times -->
             </div>
             <h2 class="artist-song-mobile"></h2>
@@ -36,7 +36,8 @@
         <div class="control-group volume">
             <span class="ion-volume-high icon"></span>
             <div class="seek-bar">
-                <seek-bar></seek-bar>
+            <!-- added contents of tag in ang-assign-cp10 -->
+                <seek-bar value="{{ playerBar.songPlayer.volume }}" on-change="{{ playerBar.songPlayer.setVolume(value) }}"></seek-bar>
             </div>
         </div>
     </div>
