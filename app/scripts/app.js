@@ -25,7 +25,7 @@
     }
     
     angular
-        .module("blocJams", ["ui.router"]) // With UI-Router, an application can be in different states that determine what                                         to display when a user navigates to a specific route.
+        .module('blocJams', ['ui.router']) // With UI-Router, an application can be in different states that determine what                                         to display when a user navigates to a specific route.
         .config(config); //configures behavior and look of the app
     
 })();

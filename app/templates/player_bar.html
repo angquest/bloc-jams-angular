@@ -27,8 +27,8 @@
                          max = the entire song duation -->
                     <!-- If the length of a song is the "max" value of the seek bar, then the current playback time of the        song is the "value" of the seekbar, which determines the position of the seek bar thumb -->
                 </div>
-                <div class="current-time">{{ songPlayer.currentTime }}</div> <!-- placeholder times -->
-                <div class="total-time">{{ total song time }}</div> <!-- placeholder times -->
+                <div class="current-time">{{ playerBar.songPlayer.currentTime | timecode }}</div> <!-- placeholder times -->
+                <div class="total-time">{{ playerBar.songPlayer.currentSong.duration | timecode }}</div> <!-- placeholder times -->
             </div>
             <h2 class="artist-song-mobile"></h2>
             <h3 class="artist-name">{{ artist name }}</h3>

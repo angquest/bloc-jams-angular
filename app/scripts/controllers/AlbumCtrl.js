@@ -7,7 +7,7 @@
     }
     
     angular
-        .module("blocJams")
-        .controller("AlbumCtrl", ["Fixtures", "SongPlayer", AlbumCtrl]);
+        .module('blocJams')
+        .controller('AlbumCtrl', ['Fixtures', 'SongPlayer', AlbumCtrl]);
     
 })();
