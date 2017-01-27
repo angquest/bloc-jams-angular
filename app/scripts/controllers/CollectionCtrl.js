@@ -4,10 +4,11 @@
        
        //binds album data into collection so that View has access to it
        this.album = Fixtures.getCollection(12); //gives controller specific properties --> view of collection
+       //looped in Fixtures.js
    } 
     
     angular
-        .module("blocJams")
-        .controller("CollectionCtrl", ["Fixtures", CollectionCtrl]);
+        .module('blocJams')
+        .controller('CollectionCtrl', ['Fixtures', CollectionCtrl]);
     
 })();

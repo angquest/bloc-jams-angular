@@ -35,7 +35,7 @@
                });
         
         // added in ang-assign-cp10
-               attributes.
+               //attributes.
                
                /**
                * @function: percentString

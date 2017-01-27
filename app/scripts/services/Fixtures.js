@@ -7,7 +7,7 @@
             artist: 'Pablo Picasso',
             label: 'Cubism',
             year: '1881',
-            albumArtUrl: '/assets/images/album_covers/01.png',
+            albumArtUrl: '/assets/images/album_covers/04.png',
             songs: [
                 {title: 'I\'m so Blue', duration: 161.71, audioUrl: '/assets/music/blue'},
                 {title: 'Green with Envy', duration: 103.96, audioUrl: '/assets/music/green'},
@@ -32,12 +32,17 @@
             ]
         };
         
+        //getAlbum = albumData on AlbumCtrl (public function)
         Fixtures.getAlbum = function() {
             return albumPicasso;
         };
         
+        //getCollection = album on CollectionCtrl
         Fixtures.getCollection = function(numberOfAlbums) {
-            return albumPicasso[numberOfAlbums];
+            var albums = [];
+            for(var i = 0; i < numberOfAlbums; i++)
+                albums.push(this.getAlbum());
+            return albums;
         };
         
         return Fixtures;
@@ -45,6 +50,6 @@
     }
     
     angular
-        .module("blocJams")
-        .factory("Fixtures", Fixtures); 
+        .module('blocJams')
+        .factory('Fixtures', Fixtures); 
 })();

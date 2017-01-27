@@ -1,14 +1,15 @@
-<section class="album-covers container clearfix" ng-controller="CollectionCtrl as collection">
-    <div class="collection-album-container column fourth" ng-repeat="album in collection.albums track by $index">
-        <!-- above, allows us to access the data from a single item in the collection (CollectionCtrl.js) -->
-        <img src="{{ album.albumArtUrl }}">
+<section class="album-covers container clearfix">
+    <div class="collection-album-container column fourth" ng-repeat="album in collection.albums track by $index"><!-- .albums is in the array of getCollection in Fixtures.js; track by $index was added because of a duplicate key error-->
+        <!-- ng-repeat, allows us to access the data from a single item in the collection (CollectionCtrl.js) -->
+        <img src="{{ album.albumArtUrl }}"/> <!-- ng-src="{{ album.albumArtUrl }}" this was my code -->
         <div class="collection-album-info caption">
             <p>
-                <a class="album-name" ui-sref="album">{{ album.title }}</a>
+                <!-- these are the links for title, artist -->
+                <a class="album-name" ui-sref="album">{{ album.title }}</a><!-- pulled from Fixtures.js -->
                 <br/>
-                <a ui-sref="album">{{ album.artist }}</a>
+                <a ui-sref="album">{{ album.artist }}</a><!-- pulled from Fixtures.js -->
                 <br/>
-                {{ album.songs.length }} songs
+                {{ album.songs.length }} songs <!-- album.songs is pulled from Fixtures.js, then the .length through the array of songs + "songs". -->
                 <br/>
             </p>
         </div>

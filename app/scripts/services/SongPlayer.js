@@ -81,10 +81,10 @@
         * @param: {Object} song
         */
         SongPlayer.play = function(song) {
-            song = song || SongPLayer.currentSong;
+            song = song || SongPlayer.currentSong;
             if(SongPlayer.currentSong !== song) {
-                setSong;
-                playSong;
+                setSong(song);
+                playSong(song);
                 
             } else if(SongPlayer.currentSong === song) {
                 if(currentBuzzObject.isPaused()) {
